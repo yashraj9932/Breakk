@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Spinner from '../Spinner';
 
  class Random extends Component {
      componentDidMount(){
-         const x=1+Math.floor(Math.random() * 117)
-        this.props.getCharac(x);
+        //  const x=1+Math.floor(Math.random() * 117)
+        // this.props.getCharac(x);
+        this.props.getCharac();
      }
      static propTypes={
          getCharac:PropTypes.func.isRequired,
@@ -14,9 +16,7 @@ import PropTypes from 'prop-types'
         const {name,img,nickname,occupation}=this.props.charac;
         const {loading}=this.props;
         if(loading)
-        return(
-            <h1>Loading...</h1>
-        )
+        return( <Spinner/>)
         else{
             
         return (
